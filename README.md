@@ -1,98 +1,251 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🚀 Backend Olavarría - NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Un servidor backend moderno y profesional construido con NestJS que incluye una interfaz web para probar la API.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 📋 Características Profesionales
 
-## Description
+- ✅ **NestJS Framework** - Framework Node.js progresivo
+- ✅ **TypeScript** - Tipado estático para mejor desarrollo
+- ✅ **API REST** - Endpoints para pruebas y desarrollo
+- ✅ **Cliente Web** - Interfaz HTML/CSS/JS para probar la API
+- ✅ **CORS habilitado** - Para desarrollo frontend
+- ✅ **Puerto 3000** - Configurado por defecto
+- ✅ **Hot Reload** - Recarga automática en desarrollo
+- ✅ **Variables de Entorno** - Configuración flexible con @nestjs/config
+- ✅ **Validación Profesional** - DTOs con class-validator
+- ✅ **Documentación Automática** - Swagger UI integrado
+- ✅ **Manejo Global de Errores** - Filtros de excepción
+- ✅ **Rate Limiting** - Protección contra abusos (100 req/min)
+- ✅ **Logging Avanzado** - Winston con archivos de log
+- ✅ **Seguridad** - Helmet middleware
+- ✅ **Compresión** - Gzip para mejor rendimiento
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🛠️ Instalación
 
-## Project setup
-
+1. **Instalar dependencias:**
 ```bash
-$ npm install
+npm install
 ```
 
-## Compile and run the project
-
+2. **Configurar variables de entorno:**
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# Crear archivo .env basado en .env.example
+PORT=3000
+NODE_ENV=development
 ```
 
-## Run tests
-
+3. **Ejecutar en modo desarrollo:**
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run start:dev
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+4. **Ejecutar en modo producción:**
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run build
+npm run start:prod
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## 🌐 Acceso
 
-## Resources
+Una vez ejecutado, puedes acceder a:
 
-Check out a few resources that may come in handy when working with NestJS:
+- **Cliente Web:** http://localhost:3000
+- **API Status:** http://localhost:3000/api/status
+- **API Info:** http://localhost:3000/api/info
+- **Documentación Swagger:** http://localhost:3000/api/docs
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 📡 Endpoints de la API
 
-## Support
+### GET /api/status
+Obtiene el estado del servidor
+```json
+{
+  "status": "OK",
+  "timestamp": "2024-01-01T00:00:00.000Z",
+  "message": "Servidor NestJS funcionando correctamente",
+  "port": 3000,
+  "environment": "development"
+}
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### GET /api/info
+Información detallada sobre la API
+```json
+{
+  "name": "Backend Olavarría",
+  "version": "1.0.0",
+  "description": "API REST con NestJS",
+  "features": [
+    "Validación de datos con class-validator",
+    "DTOs para type safety",
+    "Middleware de seguridad (Helmet)",
+    "Compresión Gzip",
+    "CORS habilitado",
+    "Variables de entorno",
+    "Rate limiting",
+    "Logging avanzado con Winston",
+    "Manejo global de errores",
+    "Documentación automática con Swagger"
+  ],
+  "endpoints": [...]
+}
+```
 
-## Stay in touch
+### POST /api/echo
+Echo de mensajes con validación
+```json
+// Request
+{
+  "message": "Hola desde el cliente!",
+  "name": "Juan Pérez"
+}
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+// Response
+{
+  "message": "Echo recibido y validado correctamente",
+  "data": { "message": "Hola desde el cliente!", "name": "Juan Pérez" },
+  "timestamp": "2024-01-01T00:00:00.000Z",
+  "validation": "✅ Datos validados con class-validator"
+}
+```
 
-## License
+### GET /api/users/:id
+Obtiene información de un usuario por ID
+```json
+{
+  "id": 1,
+  "name": "Usuario Ejemplo",
+  "email": "usuario@ejemplo.com",
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "validation": "✅ ID validado como número entero"
+}
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 🎨 Interfaz Web
+
+El proyecto incluye una interfaz web moderna con:
+
+- ✨ Diseño responsive y atractivo
+- 🧪 Pruebas interactivas de la API
+- 📊 Información del servidor
+- 🎯 Interfaz intuitiva
+- 🔄 Actualización automática de resultados
+
+## 📁 Estructura del Proyecto
+
+```
+back-end-nest-js/
+├── src/
+│   ├── dto/                    # Data Transfer Objects
+│   │   ├── echo.dto.ts         # Validación para echo
+│   │   └── user.dto.ts         # Validación para usuarios
+│   ├── filters/                # Filtros globales
+│   │   └── http-exception.filter.ts
+│   ├── app.controller.ts       # Controlador principal
+│   ├── app.service.ts          # Servicios
+│   ├── app.module.ts           # Módulo principal
+│   └── main.ts                 # Punto de entrada
+├── client/
+│   ├── index.html              # Página principal
+│   └── css/
+│       └── style.css           # Estilos
+├── logs/                       # Archivos de log
+│   ├── error.log              # Logs de errores
+│   └── combined.log           # Logs combinados
+├── test/                       # Tests
+├── start.bat                   # Script de inicio (Windows)
+└── package.json               # Dependencias
+```
+
+## 🚀 Scripts Disponibles
+
+- `npm run start` - Inicia el servidor
+- `npm run start:dev` - Inicia en modo desarrollo con hot reload
+- `npm run start:debug` - Inicia en modo debug
+- `npm run start:prod` - Inicia en modo producción
+- `npm run build` - Compila el proyecto
+- `npm run test` - Ejecuta tests
+- `npm run lint` - Ejecuta el linter
+
+## 🔧 Configuración
+
+### Variables de Entorno
+Crea un archivo `.env` en la raíz del proyecto:
+
+```env
+PORT=3000
+NODE_ENV=development
+```
+
+### Rate Limiting
+- **Límite:** 100 requests por minuto
+- **Configuración:** En `app.module.ts`
+
+### Logging
+- **Consola:** Logs coloridos en desarrollo
+- **Archivos:** `logs/error.log` y `logs/combined.log`
+- **Niveles:** error, warn, info, debug
+
+## 🛡️ Seguridad
+
+- **Helmet:** Headers de seguridad
+- **CORS:** Configurado para desarrollo
+- **Rate Limiting:** Protección contra abusos
+- **Validación:** Todos los inputs validados
+- **Sanitización:** Datos limpios automáticamente
+
+## 📝 Desarrollo
+
+### Agregar nuevos endpoints:
+
+1. **Crear DTO** en `src/dto/`
+2. **Agregar método** en `app.controller.ts`
+3. **Documentar** con decoradores de Swagger
+4. **El servidor se recarga automáticamente**
+
+### Ejemplo de nuevo endpoint:
+
+```typescript
+@Post('api/example')
+@ApiOperation({ summary: 'Nuevo endpoint' })
+@ApiResponse({ status: 201, description: 'Creado exitosamente' })
+async createExample(@Body() dto: ExampleDto) {
+  this.logger.log('Nuevo ejemplo creado');
+  return { message: 'Ejemplo creado' };
+}
+```
+
+## 📊 Monitoreo
+
+### Logs
+- **Consola:** Logs en tiempo real
+- **Archivos:** `logs/combined.log` y `logs/error.log`
+- **Formato:** JSON con timestamps
+
+### Métricas
+- **Rate Limiting:** Monitoreo de requests
+- **Validación:** Errores de validación
+- **Performance:** Tiempos de respuesta
+
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crea una rama para tu feature
+3. Commit tus cambios
+4. Push a la rama
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
+---
+
+**¡Tu backend NestJS está listo para producción! 🎉**
+
+### 🎯 Próximos pasos sugeridos:
+- [ ] Integrar base de datos (TypeORM/Prisma)
+- [ ] Autenticación JWT
+- [ ] Tests unitarios y e2e
+- [ ] Docker containerization
+- [ ] CI/CD pipeline

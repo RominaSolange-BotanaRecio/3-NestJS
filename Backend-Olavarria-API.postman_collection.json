@@ -1,0 +1,357 @@
+{
+  "info": {
+    "name": "Backend Olavarría API",
+    "description": "Colección completa para probar la API REST de Backend Olavarría construida con NestJS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "🏠 Información General",
+      "item": [
+        {
+          "name": "Estado del Servidor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "status"]
+            },
+            "description": "Obtiene el estado actual del servidor"
+          }
+        },
+        {
+          "name": "Información de la API",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/info",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "info"]
+            },
+            "description": "Obtiene información detallada sobre la API"
+          }
+        },
+        {
+          "name": "Echo de Mensajes",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"Hola desde Postman!\",\n  \"name\": \"Usuario Postman\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/echo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "echo"]
+            },
+            "description": "Envía un mensaje y recibe el echo con validación"
+          }
+        },
+        {
+          "name": "Usuario por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            },
+            "description": "Obtiene información de un usuario por ID"
+          }
+        }
+      ]
+    },
+    {
+      "name": "📦 Productos",
+      "item": [
+        {
+          "name": "Obtener Todos los Productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products"]
+            },
+            "description": "Obtiene la lista completa de productos"
+          }
+        },
+        {
+          "name": "Obtener Productos por Categoría",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products?category=Electrónicos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "Electrónicos"
+                }
+              ]
+            },
+            "description": "Filtra productos por categoría"
+          }
+        },
+        {
+          "name": "Obtener Productos por Rango de Precio",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products?minPrice=100&maxPrice=200",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products"],
+              "query": [
+                {
+                  "key": "minPrice",
+                  "value": "100"
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "200"
+                }
+              ]
+            },
+            "description": "Filtra productos por rango de precio"
+          }
+        },
+        {
+          "name": "Obtener Producto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", "1"]
+            },
+            "description": "Obtiene un producto específico por ID"
+          }
+        },
+        {
+          "name": "Crear Nuevo Producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Monitor Gaming 27\"\",\n  \"description\": \"Monitor gaming de 27 pulgadas con 144Hz\",\n  \"price\": 299.99,\n  \"stock\": 25,\n  \"category\": \"Electrónicos\",\n  \"imageUrl\": \"https://example.com/monitor.jpg\",\n  \"isActive\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products"]
+            },
+            "description": "Crea un nuevo producto con validación completa"
+          }
+        },
+        {
+          "name": "Actualizar Producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 279.99,\n  \"stock\": 30,\n  \"description\": \"Monitor gaming de 27 pulgadas con 144Hz - Actualizado\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", "1"]
+            },
+            "description": "Actualiza un producto existente"
+          }
+        },
+        {
+          "name": "Eliminar Producto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", "1"]
+            },
+            "description": "Elimina un producto (soft delete)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "🛒 Órdenes",
+      "item": [
+        {
+          "name": "Obtener Todas las Órdenes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"]
+            },
+            "description": "Obtiene la lista completa de órdenes"
+          }
+        },
+        {
+          "name": "Obtener Órdenes por Estado",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/orders?status=confirmed",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "confirmed"
+                }
+              ]
+            },
+            "description": "Filtra órdenes por estado"
+          }
+        },
+        {
+          "name": "Obtener Órdenes por Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/orders?customerEmail=juan@example.com",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"],
+              "query": [
+                {
+                  "key": "customerEmail",
+                  "value": "juan@example.com"
+                }
+              ]
+            },
+            "description": "Filtra órdenes por email del cliente"
+          }
+        },
+        {
+          "name": "Obtener Orden por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "1"]
+            },
+            "description": "Obtiene una orden específica por ID"
+          }
+        },
+        {
+          "name": "Crear Nueva Orden",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerName\": \"Carlos López\",\n  \"customerEmail\": \"carlos@example.com\",\n  \"customerPhone\": \"+54 2284 789012\",\n  \"shippingAddress\": \"Rivadavia 789, Olavarría\",\n  \"items\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 1\n    },\n    {\n      \"productId\": 2,\n      \"quantity\": 3\n    }\n  ],\n  \"notes\": \"Entregar por la tarde\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"]
+            },
+            "description": "Crea una nueva orden con validación completa"
+          }
+        },
+        {
+          "name": "Actualizar Estado de Orden",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"shipped\",\n  \"comments\": \"Orden enviada por correo express\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/1/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "1", "status"]
+            },
+            "description": "Actualiza el estado de una orden"
+          }
+        },
+        {
+          "name": "Obtener Órdenes por Cliente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/customer/juan@example.com",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "customer", "juan@example.com"]
+            },
+            "description": "Obtiene todas las órdenes de un cliente específico"
+          }
+        }
+      ]
+    },
+    {
+      "name": "📚 Documentación",
+      "item": [
+        {
+          "name": "Swagger UI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/docs",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "docs"]
+            },
+            "description": "Accede a la documentación interactiva de la API"
+          }
+        }
+      ]
+    }
+  ]
+} 

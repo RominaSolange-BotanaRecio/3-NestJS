@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Olavarría - NestJS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Backend Olavarría</h1>
+            <p>Servidor NestJS funcionando en puerto 3000</p>
+        </header>
+
+        <main>
+            <section class="api-tests">
+                <h2>🧪 Pruebas de API</h2>
+                
+                <div class="test-card">
+                    <h3>Estado del Servidor</h3>
+                    <button onclick="testStatus()">Probar /api/status</button>
+                    <div id="status-result" class="result"></div>
+                </div>
+
+                <div class="test-card">
+                    <h3>Información de la API</h3>
+                    <button onclick="testInfo()">Probar /api/info</button>
+                    <div id="info-result" class="result"></div>
+                </div>
+
+                <div class="test-card">
+                    <h3>Echo de Mensajes</h3>
+                    <input type="text" id="echo-input" placeholder="Escribe un mensaje...">
+                    <button onclick="testEcho()">Probar /api/echo</button>
+                    <div id="echo-result" class="result"></div>
+                </div>
+
+                <div class="test-card">
+                    <h3>Usuario por ID</h3>
+                    <input type="number" id="user-id" placeholder="ID del usuario" value="1">
+                    <button onclick="testUser()">Probar /api/users/:id</button>
+                    <div id="user-result" class="result"></div>
+                </div>
+            </section>
+
+            <section class="server-info">
+                <h2>📊 Información del Servidor</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Puerto:</strong> 3000
+                    </div>
+                    <div class="info-item">
+                        <strong>Framework:</strong> NestJS
+                    </div>
+                    <div class="info-item">
+                        <strong>Lenguaje:</strong> TypeScript
+                    </div>
+                    <div class="info-item">
+                        <strong>Cliente:</strong> HTML/CSS/JS
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const API_BASE = '/api';
+
+        async function testStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/status`);
+                const data = await response.json();
+                document.getElementById('status-result').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('status-result').innerHTML = `<p class="error">Error: ${error.message}</p>`;
+            }
+        }
+
+        async function testInfo() {
+            try {
+                const response = await fetch(`${API_BASE}/info`);
+                const data = await response.json();
+                document.getElementById('info-result').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('info-result').innerHTML = `<p class="error">Error: ${error.message}</p>`;
+            }
+        }
+
+        async function testEcho() {
+            try {
+                const message = document.getElementById('echo-input').value || 'Hola desde el cliente!';
+                const response = await fetch(`${API_BASE}/echo`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message, timestamp: new Date().toISOString() })
+                });
+                const data = await response.json();
+                document.getElementById('echo-result').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('echo-result').innerHTML = `<p class="error">Error: ${error.message}</p>`;
+            }
+        }
+
+        async function testUser() {
+            try {
+                const userId = document.getElementById('user-id').value || '1';
+                const response = await fetch(`${API_BASE}/users/${userId}`);
+                const data = await response.json();
+                document.getElementById('user-result').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('user-result').innerHTML = `<p class="error">Error: ${error.message}</p>`;
+            }
+        }
+
+        // Cargar estado inicial
+        window.onload = function() {
+            testStatus();
+        };
+    </script>
+</body>
+</html>
